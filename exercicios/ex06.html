@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatando números</title>
+</head>
+<body>
+    <h1>Formatando Números.</h1>
+    <script>
+        var n1 = 1543.5;
+        document.write(n1 + '<br>');
+        document.write(n1.toFixed(2) + '<br>'); // Duas casas decimais.
+        document.write(n1.toFixed(2).replace('.', ',') + '<br>'); // Usando replace para trocar o . por ,.
+        document.write(n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) + '<br>'); // Exibindo em formato de real.
+    </script>
+</body>
+</html>
