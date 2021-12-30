@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condição múltipla</title>
+</head>
+<body>
+    <h1>Condições múltiplas em JS</h1>
+    <p>Código básico para informar o dia da semana! :D</p>
+    <p id="res"></p>
+    <script>
+        var agora = new Date();
+        var diaSem = agora.getDay();
+        var res = window.document.getElementById('res');
+
+        switch(diaSem){
+            case 0:
+                res.innerText = 'Hoje é Domingo!';
+                break;
+            case 1:
+                res.innerText = 'Hoje é Segunda!';
+                break;
+            case 2:
+                res.innerText = 'Hoje é Terça!';
+                break;
+            case 3:
+                res.innerText = 'Hoje é Quarta!';
+                break;
+            case 4:
+                res.innerText = 'Hoje é Quinta!';
+                break;
+            case 5:
+                res.innerText = 'Hoje é Sexta!';
+                break;
+            case 6:
+                res.innerText = 'Hoje é Sábado!';
+                break;
+            default:
+                res.innerText = '[ERRO] Dia inválido.';
+                break; // Opcional
+        }
+    </script>
+</body>
+</html>
