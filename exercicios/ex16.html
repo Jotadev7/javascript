@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+    <style>
+        body {
+            background-color: rgb(38, 38, 241);
+            font: normal 15pt Arial;
+            text-align: center;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
+        }
+        footer {
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de idade</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>Ano de nascimento: 
+                <input type="number" name="txtano" id="txtano" min="0">
+            </p>
+            <p>Sexo:
+                <input type="radio" name="radsex" id="masc" checked>
+                <label for="masc">Masculino</label>
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem">Feminino</label>
+            </p>
+            <p>
+                <input type="button" value="Verificar" onclick="verificar()">
+            </p>
+        </div>
+
+        <div id="res">
+            Preencha os campos acima para ver o resultado!
+            <!--<img id="foto"> Foi criado pelo JS-->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+
+    <script>
+        function verificar () {
+            var data = new Date();
+            var ano = data.getFullYear();
+            var fano = document.getElementById('txtano');
+            var res = document.getElementById('res');
+            if (fano.value.length == 0 || Number(fano.value) > ano) {
+                window.alert('[ERRO] Verifique os dados e tente novamente!');
+            } else {
+                var fsex = document.getElementsByName('radsex');
+                var idade = ano - Number(fano.value);
+                var genero = '';
+                var img = document.createElement('img'); // Criando pelo JS
+                img.setAttribute('id', 'foto');
+                img.setAttribute('width', '250px');
+                img.setAttribute('heigth', '250px');
+                if (fsex[0].checked) {
+                    genero = 'Homem';
+                    if (idade >= 0 && idade < 10) {
+                        // Criança
+                        img.setAttribute('src', 'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?cs=srgb&dl=pexels-bess-hamiti-35537.jpg&fm=jpg');
+                    } else if (idade < 21) {
+                        // JOVEM
+                        img.setAttribute('src', 'https://images.pexels.com/photos/5554286/pexels-photo-5554286.jpeg?cs=srgb&dl=pexels-armin-rimoldi-5554286.jpg&fm=jpg');
+                    } else if (idade < 50) {
+                        // ADULTO
+                        img.setAttribute('src', 'https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?cs=srgb&dl=pexels-anna-shvets-5262378.jpg&fm=jpg');
+                    } else {
+                        // IDOSO
+                        img.setAttribute('src', 'https://images.pexels.com/photos/7317757/pexels-photo-7317757.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-7317757.jpg&fm=jpg');
+                    }
+                } else if (fsex[1].checked) {
+                    genero = 'Mulher';
+                    if (idade >= 0 && idade < 10) {
+                        // Criança
+                        img.setAttribute('src', 'https://images.pexels.com/photos/1912868/pexels-photo-1912868.jpeg?cs=srgb&dl=pexels-alexander-dummer-1912868.jpg&fm=jpg');
+                    } else if (idade >= 10 && idade < 21) {
+                        // JOVEM
+                        img.setAttribute('src', 'https://images.pexels.com/photos/8527308/pexels-photo-8527308.jpeg?cs=srgb&dl=pexels-karolina-grabowska-8527308.jpg&fm=jpg');
+                    } else if (idade >= 21 && idade < 50) {
+                        // ADULTO
+                        img.setAttribute('src', 'https://images.pexels.com/photos/5608917/pexels-photo-5608917.jpeg?cs=srgb&dl=pexels-aviz-5608917.jpg&fm=jpg');
+                    } else {
+                        // IDOSO
+                        img.setAttribute('src', 'https://images.pexels.com/photos/2050994/pexels-photo-2050994.jpeg?cs=srgb&dl=pexels-edu-carvalho-2050994.jpg&fm=jpg');
+                    }
+                }
+            }
+            res.innerHTML = `Detectamos ${genero} com ${idade} anos.`;
+            res.appendChild(img);
+        }
+    </script>
+</body>
+</html>
