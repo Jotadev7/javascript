@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Hora do dia</title>
+    <style>
+        body {
+            background-color: rgb(38, 38, 241);
+            font: normal 15pt Arial;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
+        }
+        div {
+            text-align: center;
+            padding: 10px;
+        }
+        img {
+            border-radius: 50%;
+        }
+        footer {
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+
+    <section>
+        <div id="msg">
+            Aqui vai aparecer mensagem...
+        </div>
+
+        <div id="foto">
+            <img id="imagem" src="https://images.pexels.com/photos/3363426/pexels-photo-3363426.jpeg?cs=srgb&dl=pexels-josh-hild-3363426.jpg&fm=jpg" alt="Foto do dia" width="250px" height="250px">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+
+    <script>
+        function carregar() {
+            var msg = window.document.getElementById('msg');
+            var img = window.document.getElementById('imagem');
+            var data = new Date();
+            var hora = data.getHours();
+            msg.innerHTML = `Agora são ${hora} horas.`;
+
+            if(hora >= 0 && hora < 12) {
+                img.src = 'https://images.pexels.com/photos/3363426/pexels-photo-3363426.jpeg?cs=srgb&dl=pexels-josh-hild-3363426.jpg&fm=jpg';
+                document.body.style.background = '#e2cd9f';
+            } else if (hora >= 12 && hora <= 18) {
+                img.src = 'https://images.pexels.com/photos/2386144/pexels-photo-2386144.jpeg?cs=srgb&dl=pexels-anderson-martins-2386144.jpg&fm=jpg';
+                document.body.style.background = '#b9846f';
+            } else {
+                img.src = 'https://images.pexels.com/photos/771883/pexels-photo-771883.jpeg?cs=srgb&dl=pexels-reynaldo-brigworkz-brigantty-771883.jpg&fm=jpg';
+                document.body.style.background = '#515154';
+            }
+        }
+        
+    </script>
+</body>
+</html>
