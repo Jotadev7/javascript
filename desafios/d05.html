@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 05 - Conversor de Medidas</title>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <button onclick="converter()">Converter</button>
+    <p id="area">Clique no botão acima para iniciar.</p>
+    <p id="res"></p>
+    <script>
+        function converter() {
+            var distancia = Number(window.prompt('Informe uma distância em metros (m)'));
+            var km = distancia / 1000;
+            var Hm = km * 10;
+            var Dam = Hm * 10;
+            var dm = distancia * 10;
+            var cm = distancia * 100;
+            var mm = cm * 10;
+            var texto = window.document.getElementById('area');
+            texto.innerText = `A distância de ${distancia} metros, corresponde a:
+${km.toFixed(2)} quilômetros (Km).
+${Hm.toFixed(2)} hectômetros (Hm).
+${Dam.toFixed(2)} decâmetros (Dam).
+${dm.toFixed(2)} decímetros (dm).
+${cm.toFixed(2)} centímetros (cm).
+${mm.toFixed(2)} milímetros (mm).`;
+        }
+    </script>
+</body>
+</html>
