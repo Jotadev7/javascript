@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 04 - Calculando o troco</title>
+</head>
+<body>
+    <h1>Desafio de calcular o troco</h1>
+    <button onclick="calcular()">Comprar produto</button>
+    <script>
+        function calcular() {
+            var produto = window.prompt('Qual produto você está comprando?');
+            var preco = Number(window.prompt(`Quando custa o(a) ${produto} que você está comprando?`));
+            var pago = Number(window.prompt(`Qual foi o valor que você entregou para pagar o ${produto}?`));
+            var troco = pago - preco;
+            // Fazendo conversões
+            preco = preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+            pago = pago.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+            troco = troco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+
+            // Exibindo com conversões
+            window.alert(`Você comprou ${produto} que custou ${preco}. Você pagou ${pago} em dinheiro e vai receber ${troco} de troco. Volte sempre!`);
+
+            // Fazendo a conversão direto na exibição
+            window.alert(`Olá, cliente! Você comprou ${produto} que custou ${preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}. Você pagou ${pago.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} em dinheiro e vai receber ${troco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} de troco. Volte sempre!`);
+        }
+    </script>
+</body>
+</html>
