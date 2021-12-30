@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 03 - Antes e depois</title>
+    <style>
+        body {
+            background-color: lightgray;
+            text-align: center;
+        }
+        h1 {
+            color: black;
+        }
+        button {
+            background-color: rgba(255, 0, 0, 0.493);
+            color: white;
+            border: 0px;
+            border-radius: 5px;
+            padding: 12px;
+            margin: 10px;
+            font-size: 20px;
+        }
+        button:hover {
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desafio do antes e depois</h1>
+    <button onclick="clicou()">Antecessor e Sucessor</button>
+    <script>
+        function clicou() {
+            var n = Number(window.prompt('Informe um número'));
+            window.alert(`Você inseriu o número: ${n}. Seu antecessor é: ${n - 1}. Seu sucessor é: ${++n}`);
+        }
+    </script>
+</body>
+</html>
