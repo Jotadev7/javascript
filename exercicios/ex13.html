@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições em JS</title>
+</head>
+<body>
+    <h1>Condições aninhadas em JavaScript</h1>
+    <h3>Eu posso votar ou tenho um voto obrigatório?</h3>
+    Informe sua idade: <input type="number" name="txtn1" id="txtn1">
+    <p id="res">Clique no botão abaixo para se informar.</p>
+    <input type="button" value="Informar" onclick="informar()">
+    <script>
+        function informar(){
+            var tn1 = window.document.getElementById('txtn1');
+            var res = window.document.getElementById('res');
+            var idade = Number(tn1.value);
+            if(idade < 16) {
+                res.innerText = `Essa é sua idade: ${idade} anos.Você não pode votar.`;
+            } else if(idade < 18 || idade > 65) { // Menor de 16 e 18, por conta da condição anterior. Ou maior que 65.
+                res.innerText = `Essa é sua idade: ${idade} anos. Você pode votar, mas não é obrigatório.`;
+            } else {
+                res.innerText = `Essa é a sua idade: ${idade} anos. Seu voto é obrigatório.`;
+            }
+        }
+    </script>
+</body>
+</html>
