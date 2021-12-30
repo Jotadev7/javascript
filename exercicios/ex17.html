@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetições em JS</title>
+</head>
+<body>
+    <h1>Repetição com JavaScript</h1>
+    <script>
+        // Repetição com teste lógico no início.
+        var c = 0;
+        while(c < 6) {
+            window.document.write(`Primeira repetição ${c} vezes.<br>`);
+            c++;
+        }
+
+        // Repetição com teste lógico no final.
+        var c1 = 0;
+        do {
+            window.document.write(`Segunda repetição ${c1} vezes.<br>`);
+            c1++;
+        } while (c1 <= 5)
+
+        // Repetição com variável de controle (inicialização, teste lógico, incremento)
+        var c2 = 0;
+        for (var c2 = 0; c2 <= 5; c2++) {
+            window.document.write(`Terceira repetição ${c2} vezes.<br>`);
+        }
+    </script>
+</body>
+</html>
