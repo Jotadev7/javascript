@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições em JS</title>
+</head>
+<body>
+    <h1>Condições em JavaScript</h1>
+    Primeira nota: <input type="number" name="txtn1" id="txtn1">
+    Segunda nota: <input type="number" name="txtn2" id="txtn2">
+    <p id="res">Clique no botão abaixo para calcular a média.</p>
+    <input type="button" value="Calcular média" onclick="calcular()">
+    <script>
+        function calcular(){
+            var tn1 = window.document.getElementById('txtn1');
+            var tn2 = window.document.getElementById('txtn2');
+            var res = window.document.getElementById('res');
+            var n1 = Number(tn1.value);
+            var n2 = Number(tn2.value);
+            var media = (n1 + n2) / 2;
+            if(media >= 7) {
+                res.innerText = `Essa é sua média: ${media}, você foi aprovado!`;
+            } else {
+                res.innerText = `Essa é sua média: ${media}, você não conseguiu a aprovação.`;
+            }
+        }
+    </script>
+</body>
+</html>
