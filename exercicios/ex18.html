@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body {
+            background-color: rgb(38, 38, 241);
+            font: normal 15pt Arial;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
+        }
+        footer {
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos contar!</h1>
+    </header>
+
+    <section>
+        <div id="dados">
+            <p>Início: <input type="number" name="txtini" id="txtini"></p>
+            <p>Fim: <input type="number" name="txtfim" id="txtfim"></p>
+            <p>Passo: <input type="number" name="txtpasso" id="txtpasso"></p>
+            <p><input type="button" value="Contar" onclick="contar()"></p>
+        </div>
+
+        <div id="res">
+            Preparando a contagem...
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+
+    <script>
+        function contar() {
+            var ini = document.getElementById('txtini');
+            var fim = document.getElementById('txtfim');
+            var passo = document.getElementById('txtpasso');
+            let res = document.getElementById('res'); // Variável de escopo, não vai existir fora desse bloco.
+
+            if(ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0) {
+                res.innerHTML = 'Impossível contar!';
+            } else {
+                res.innerHTML = 'Contando: <br>';
+                let i = Number(ini.value);
+                let f = Number(fim.value);
+                let p = Number(passo.value);
+                if (p <= 0) {
+                    window.alert('Passo inválido! Considerando PASSO 1.');
+                    p = 1;
+                }
+                if (i < f) {
+                    // Contagem crescente
+                    for (let c = i; c <= f; c += p) {
+                    res.innerHTML += `${c} \u{1F449}`; // Inserção de emoji com JS.
+                    }
+                } else {
+                    // Contagem regressiva
+                    for (let c = i; c >= f; c -= p) {
+                    res.innerHTML += `${c} \u{1F449}`;
+                    }
+                }
+                res.innerHTML += `\u{1F3C1}`;
+            }
+        }
+    </script>
+</body>
+</html>
