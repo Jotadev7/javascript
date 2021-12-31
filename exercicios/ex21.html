@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções em JS</title>
+</head>
+<body>
+    <h1>Funções</h1>
+    <script>
+        // Função para verificar se número é par ou ímpar
+        function parimp(n) {
+            if(n % 2 == 0) {
+                return 'par';
+            } else {
+                return 'impar';
+            }
+        }
+        var res = parimp(12);
+        document.write(`O resultado é: ${res}.`);
+
+        // Função para somar dois números, com parâmetro pré-definido
+        function soma(n1=0, n2){
+            return (n1 + n2);
+        }
+        var som = soma(12, 8);
+        document.write(`<br>O resultado da soma é: ${som}.`);
+
+        // Função para calcular o fatorial
+        function fatorial(n){
+            let fat = 1;
+            for (let c = n; c > 1; c--) {
+                fat *= c;
+            }
+            return(fat);
+        }
+        var num = fatorial(5);
+        document.write(`<br>O resultado do fatorial é: ${num}.`);
+
+        // Função recursiva
+        function fatorialR(nu) {
+            if (nu == 1) {
+                return 1;
+            } else {
+                return nu * fatorialR(nu-1);
+            }
+        }
+        var num1 = fatorialR(5);
+        document.write(`<br>O resultado do fatorial usando recursividade é: ${num1}.`);
+    </script>
+</body>
+</html>
