@@ -21,13 +21,13 @@
             var cm = distancia * 100;
             var mm = cm * 10;
             var texto = window.document.getElementById('area');
-            texto.innerText = `A distância de ${distancia} metros, corresponde a:
-${km.toFixed(2)} quilômetros (Km).
-${Hm.toFixed(2)} hectômetros (Hm).
-${Dam.toFixed(2)} decâmetros (Dam).
-${dm.toFixed(2)} decímetros (dm).
-${cm.toFixed(2)} centímetros (cm).
-${mm.toFixed(2)} milímetros (mm).`;
+            texto.innerText = `A distância de ${distancia.toLocaleString('pt-BR')} metros, corresponde a:
+${km.toLocaleString('pt-BR')} quilômetros (Km).
+${Hm.toLocaleString('pt-BR')} hectômetros (Hm).
+${Dam.toLocaleString('pt-BR')} decâmetros (Dam).
+${dm.toLocaleString('pt-BR')} decímetros (dm).
+${cm.toLocaleString('pt-BR')} centímetros (cm).
+${mm.toLocaleString('pt-BR')} milímetros (mm).`;
         }
     </script>
 </body>
