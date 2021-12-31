@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 07 - Conversor monetário</title>
+</head>
+<body>
+    <h1>Conversor monetário - R$ -> US$</h1>
+    <button onclick="converter()">Converter</button>
+    <p id="area">Clique no botão acima para iniciar.</p>
+    <p id="res"></p>
+    <script>
+        var dol = Number(window.prompt('Antes de mais nada. Quanto está a cotação do dólar agora?'));
+        function converter() {
+            var real = Number(window.prompt('Quantos R$ você tem na carteira?'));
+            var dolar = real / dol;
+            var texto = window.document.getElementById('area');
+            texto.innerText = `Você possui ${real.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} reais na carteira, que corresponde a: ${dolar.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})} dólares.`;
+        }
+    </script>
+</body>
+</html>
