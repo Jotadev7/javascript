@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 09 - Reajuste salarial</title>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+    <input type="button" value="Reajustar" onclick="reajustar()">
+    <p id="res">Clique no botão acima para inciar.</p>
+    <script>
+        function reajustar() {
+            let nome = window.prompt('Qual é o nome do funcionário?');
+            let salario = Number(window.prompt(`Qual é o salário atual de ${nome}?`));
+            let porcento = Number(window.prompt(`O salário de ${nome} será reajustado em qual porcentagem?`));
+            let res = document.getElementById('res');
+            let reajuste = salario * (porcento / 100);
+            let aumento = salario + reajuste;
+
+            res.innerHTML = `<p>${nome} recebeu um aumento salarial!</p>`;
+            res.innerHTML += `<p>O salário atual era de ${salario.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}.</p>`;
+            res.innerHTML += `<p>Com um aumento de ${porcento}%, o salário vai aumentar ${reajuste.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})} no próximo mês.</p>`;
+            res.innerHTML += `E a partir daí, ${nome} vai passar a ganhar ${aumento.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}!`;
+        }
+    </script>
+</body>
+</html>
