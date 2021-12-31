@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            background-color: rgb(38, 38, 241);
+            font: normal 15pt Arial;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
+        }
+        footer {
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+
+    <section>
+        <div id="dados">
+            <p>Número: <input type="number" name="txtn" id="txtn">
+            <input type="button" value="Gerar tabuada" onclick="gerar()"></p>
+        </div>
+
+        <div id="res">
+            <select name="tabuada" id="seltab" size="10">
+                <option>Digite um número acima</option>
+            </select>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+
+    <script>
+        function gerar() {
+            var num = document.getElementById('txtn');
+            var tab = document.getElementById('seltab');
+            if (num.value.length == 0) {
+                window.alert('[ERRO] Por favor, digite um número!');
+            } else {
+                var n = Number(num.value);
+                var c = 1;
+                tab.innerHTML = ''; // Para limpar antes de cada exibição.
+                while(c <= 10) {
+                    var item = document.createElement('option');
+                    item.text = `${n} x ${c} = ${n*c}`;
+                    item.value = `tab${c}`; // Para inserir value nos option.
+                    tab.appendChild(item);
+                    c++;
+                }
+            }  
+        }
+    </script>
+</body>
+</html>
