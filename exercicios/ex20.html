@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis compostas</title>
+</head>
+<body>
+    <h1>Variáveis compostas - Array</h1>
+    <script>
+        var carros = ['carro2', 'carro3', 'carro1'];
+        window.document.write(`<p>Esses são os carros: ${carros}</p>`);
+        window.document.write(`<p>Esses é o terceiro carro: ${carros[2]}</p>`); // Índice inicia em 0
+        carros.push('carro4');
+        window.document.write(`<p>Adicionado mais um carro: ${carros}</p>`);
+        carros.sort(); // Método para ordenar
+        window.document.write(`<p>Esses são os carros ordenados: ${carros}</p>`);
+        window.document.write(`<p>Esse é o total dos carros: ${carros.length}</p>`); // Tamanho do array com .length
+
+        var nums = [8,1,3,4,5];
+        window.document.write(`<hr><p>Esses são os números: ${nums}.</p>`);
+        for (var pos = 0; pos < nums.length; pos++) { // Repetição para percorrer o tamanho máximo do array
+            document.write(`A posição ${pos} tem o valor ${nums[pos]}.<br>`);
+        }
+        var posicao = nums.indexOf(8); // Retorna o índice do valor, caso não encontre retorna -1.
+        if(posicao == -1) {
+            document.write(`<br>O valor não foi encontrado!<br>`);
+        } else {
+            document.write(`<br>O valor procurado está na posição: ${posicao}.<br>`);
+        }
+
+        var nomes = ['João', 'Maria', 'Pedro'];
+        window.document.write(`<hr><p>Esses são os nomes: ${nomes}.</p>`);
+        for (var pos in nomes) { // Sintaxe resumida, usada para arrays (lê-se: para cada pos no array nomes)
+            document.write(`A posição ${pos} tem o nome ${nomes[pos]}.<br>`);
+        }
+
+
+    </script>
+</body>
+</html>
