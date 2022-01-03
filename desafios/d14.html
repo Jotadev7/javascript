@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 14 - Contador de cliques</title>
+</head>
+<body>
+    <h1>Contador de cliques</h1>
+    <input type="button" value="Clique em mim!" onclick="contar()">
+    <input type="button" value="Zerar contador" onclick="zerar()">
+    <p id="res">O contador está com <mark>0</mark> cliques!</p>
+
+    <script>
+        let cont = 0;
+        var res = document.getElementById('res');
+
+        function contar() {
+            cont ++;
+            res.innerHTML = `O contador está com <mark>${cont}</mark> cliques.`;
+        }
+
+        function zerar() {
+            cont = 0;
+            res.innerHTML = `O contador está com <mark>${cont}</mark> cliques!`;
+        }
+    </script>
+</body>
+</html>
