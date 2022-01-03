@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 13 - Situação do aluno</title>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <input type="button" value="Avaliar" onclick="avaliar()">
+    <p id="res">Clique no botão acima para informar as notas do aluno.</p>
+
+    <script>
+        function avaliar() {
+            var nome = window.prompt('Qual é o nome do aluno?');
+            var n1 = Number(window.prompt(`Primeira nota de ${nome}:`));
+            var n2 = Number(window.prompt(`Segunda nota de ${nome}:`));
+            var res = document.getElementById('res');
+            var media = (n1 + n2) / 2;
+
+            res.innerHTML = `Analisando a situação de ${nome}...`;
+            res.innerHTML += `<br>Com as notas ${n1} e ${n2}, a <strong>média é ${media}</strong>.`
+            if (media > 6) {
+                res.innerHTML += `<br>Com a média acima de 6,0. O aluno está <mark style="background-color: rgba(0, 128, 0, 0.651);">APROVADO!</mark>`;
+            } else if (media >= 3 && media <= 6) {
+                res.innerHTML += `<br>Com a média entre 3,0 e 6,0. O Aluno está em <mark>RECUPERAÇÂO!</mark>`
+            } else {
+                res.innerHTML += `<br>Com a média abaixo de 3,0. O aluno está <mark style="background-color: rgba(255, 0, 0, 0.562);">REPROVADO!</mark>`;
+            }
+        }
+    </script>
+</body>
+</html>
