@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 15 - Múltiplas ações</title>
+    <style>
+        input {
+            margin: 20px;
+            padding: 15px;
+        }
+        #btn {
+            align-items: center;
+            text-align: center;
+            border-radius: 50px;
+        }
+        #btn:hover {
+            background-color: rgba(255, 0, 0, 0.411);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Múltiplas ações</h1>
+    Primeiro número: <input type="number" name="txtnum1" id="txtnum1">
+    <br>Segundo número: <input type="number" name="txtnum2" id="txtnum2">
+    <br><input type="button" value="Clique para iniciar." onclick="calcular()" id="btn">
+    <div id="res">
+        Informe os números acima e clique no botão acima para começar.
+    </div>
+
+    <script>
+        function calcular() {
+            var n1 = document.getElementById('txtnum1');
+            var n2 = document.getElementById('txtnum2');
+            var num1 = Number(n1.value);
+            var num2 = Number(n2.value);
+            var op = Number(window.prompt(`Valores informados: ${num1} e ${num2}.\nO que vamos fazer?\n[1] Somar\n[2] Subtrair\n[3] Multiplicar\n[4] Dividir`));
+            var res = document.getElementById('res');
+            res.innerHTML = `Calculando...`;
+
+            switch(op) {
+                case 1:
+                    res.innerHTML += `<p>${num1} + ${num2} = <strong>${num1+num2}</strong></p>`;
+                    break;
+                case 2:
+                    res.innerHTML += `<p>${num1} - ${num2} = <strong>${num1-num2}</strong></p>`;
+                    break;
+                case 3:
+                    res.innerHTML += `<p>${num1} x ${num2} = <strong>${num1*num2}</strong></p>`;
+                    break;
+                case 4:
+                    res.innerHTML += `<p>${num1} / ${num2} = <strong>${num1/num2}</strong></p>`;
+                    break;
+                default:
+                    res.innerHTML = `<p>OPÇÃO INVÁLIDA! Você digitou ${num1} e ${num2}, mas não sei o que fazer com eles.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
