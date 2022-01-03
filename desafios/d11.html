@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 11 - Ano bissexto</title>
+</head>
+<body>
+    <h1>Ano bissexto?</h1>
+    <input type="button" value="Verificar" onclick="verificar()">
+    <p id="res">Informe um ano para saber se ele é bissexto.</p>
+
+    <script>
+        function verificar() {
+            var ano = Number(window.prompt('Qual é o ano que você quer verificar?'));
+            var res = document.getElementById('res');
+            if(ano <= 0) {
+                window.alert('Favor, informe um número válido.');
+            } else {
+                res.innerHTML = `Analisando o ano de ${ano}...`;
+                if (ano % 4 == 0) {
+                    res.innerHTML += `<br>O ano de ${ano} <mark style="background-color: rgba(0, 128, 0, 0.651);">É BISSEXTO</mark> \u{2714}`;
+                } else if (ano % 4 != 0){
+                    res.innerHTML += `<br>O ano de ${ano} <mark style="background-color: rgba(255, 0, 0, 0.562);">NÃO É BISSEXTO</mark> \u{274C}`;
+                } 
+            }
+        }
+        
+    </script>
+</body>
+</html>
