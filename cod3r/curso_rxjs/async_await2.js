@@ -11,12 +11,21 @@ function gerarNumerosEntre(min, max, numerosProibidos) {
     })
 }
 
-async function gerarMegaSena(qtdeNumeros) {
-    const numeros = []
-    for (let _ of Array(qtdeNumeros).fill()) {
-        numeros.push(await gerarNumerosEntre(1, 60, numeros));
+// Se não tratar o reject é chamado
+async function gerarMegaSena(qtdeNumeros, tentativas = 1) {
+    try {
+        const numeros = []
+        for (let _ of Array(qtdeNumeros).fill()) {
+            numeros.push(await gerarNumerosEntre(1, 60, numeros));
+        }
+        return numeros;
+    } catch(e) {
+        if(tentativas > 2) {
+            throw "Que chato!!! Não deu certo."; // Lançar excessão, rejeitando promise
+        } else {
+           return gerarMegaSena(qtdeNumeros, tentativas + 1);
+        }
     }
-    return numeros;
 }
 
 gerarMegaSena(8)
