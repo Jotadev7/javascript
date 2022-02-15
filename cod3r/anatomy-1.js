@@ -28,3 +28,5 @@ function returnHiTo(name) { // Declarando a função. (Com parâmetro e retorno)
 }
 
 console.log(returnHiTo('John'));
+
+console.log('teste');
